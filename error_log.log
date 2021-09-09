@@ -1,0 +1,17 @@
+{"message":"Router.use() requires a middleware function but got a Object","level":"error"}
+{"message":"'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them","level":"error"}
+{"message":"Router.use() requires a middleware function but got a Object","level":"error"}
+{"message":"Router.use() requires a middleware function but got a Object","level":"error"}
+{"message":"Router.use() requires a middleware function but got a Object","level":"error"}
+{"message":"Router.use() requires a middleware function but got a Object","level":"error"}
+{"message":"Router.use() requires a middleware function but got a Object","level":"error"}
+{"message":"Unexpected identifier","level":"error"}
+{"message":"res.status(...).json(...).catch is not a function","level":"error"}
+{"message":"res.status(...).json(...).catch is not a function","level":"error"}
+{"message":"res.status(...).json(...).catch is not a function","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"bcript is not defined","level":"error"}
+{"message":"jwt is not defined","level":"error"}
+{"message":"config is not defined","level":"error"}
