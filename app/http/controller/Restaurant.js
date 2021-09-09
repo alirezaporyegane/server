@@ -144,6 +144,18 @@ class RestaurantsControllers {
         })
       })
   }
+
+  async addFood (req, res) {
+    res.status(200).json({
+      msg: 'how Are you'
+    })
+  }
+
+  async getFood (req, res) {
+    res.status(200).json({
+      msg: 'how Are you'
+    })
+  }
 };
 
 module.exports = new RestaurantsControllers();

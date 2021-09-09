@@ -15,3 +15,12 @@
 {"message":"bcript is not defined","level":"error"}
 {"message":"jwt is not defined","level":"error"}
 {"message":"config is not defined","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
