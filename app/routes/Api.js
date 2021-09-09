@@ -3,6 +3,6 @@ router = express.Router();
 
 const Restaurant = require('./Restaurant');
 
-router.use('/restaurant', Restaurant)
+router.use('/restaurant', Restaurant);
 
 module.exports = router;
