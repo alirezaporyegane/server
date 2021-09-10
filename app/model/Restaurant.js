@@ -29,11 +29,14 @@ const menuSchema = new Schema({
     required: true
   },
   image: {
-    type: String,
-    required: true
+    type: String
   },
   commnets: [CommentsSchema],
-  score: Number
+  score: {
+    type: Number,
+    required: true,
+    default: 0
+  }
 })
 
 
@@ -71,7 +74,7 @@ RestaurantSchema.methods.generateAuthToken = function () {
     role: 'restaurant'
   }
 
-  return jwt.sign(data, config.get('jwtPrivetKey'), { expiresIn: '1h' })
+  return jwt.sign(data, config.get('jwtPrivetKey'))
 }
 
 

@@ -24,3 +24,23 @@
 {"message":"Cannot set headers after they are sent to the client","level":"error"}
 {"message":"Cannot set headers after they are sent to the client","level":"error"}
 {"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Unexpected token ')'","level":"error"}
+{"message":"missing ) after argument list","level":"error"}
+{"message":"jwt is not defined","level":"error"}
+{"message":"Unexpected identifier","level":"error"}
+{"message":"Unexpected identifier","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Unexpected identifier","level":"error"}
+{"message":"Cannot read property 'push' of undefined","level":"error"}
+{"message":"Route.delete() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"router.update is not a function","level":"error"}
+{"message":"router.update is not a function","level":"error"}
+{"message":"router.update is not a function","level":"error"}
+{"message":"router.update is not a function","level":"error"}
+{"message":"router.update is not a function","level":"error"}
+{"message":"router.update is not a function","level":"error"}
+{"message":"Route.delete() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"router.update is not a function","level":"error"}
+{"message":"router.update is not a function","level":"error"}
+{"message":"Route.put() requires a callback function but got a [object Undefined]","level":"error"}

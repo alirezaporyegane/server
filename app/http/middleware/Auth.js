@@ -9,7 +9,7 @@ const authUser = (req, res, next) => {
   })
 
   try {
-    const User = jwt.verify(token, config.get("jwtPrivetKey"));
+    const User = jwt.verify(token, config.get('jwtPrivetKey'))
     req.user = User;
     next()
   }
@@ -20,18 +20,5 @@ const authUser = (req, res, next) => {
   }
 }
 
-const authRestaurant = (req, res, next) => {
-  try {
-    if (req.user.role === "restaurant") {
-      next()
-    } else
-        return res.status(401).json({ msg: 'you are not admin'})
-  } catch (err) {
-    console.log(err)
-  }
-}
+module.exports = authUser
 
-module.exports = {
-  authUser,
-  authRestaurant
-}
