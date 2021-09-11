@@ -6,10 +6,9 @@ const { RestaurantValidatorUpdate, RestaurantValidatorCreate, loginValidator, Fo
 
 class RestaurantsControllers {
   async getAll (req, res) {
-    const limit = req.params.limit ? parseInt(req.parems.limit) : '';
-    const skip = req.params.skip ? paresInt(req.params.spip) : '';
-
-    Restaurant.find().select('title description score adminUserName image address').limit(limit).skip(skip)
+    const limit = req.query.limit ? Number(req.query.limit) : '';
+    const skip = req.query.skip ? Number(req.query.skip) : '';
+    Restaurant.find().select('title description score adminUserName image address').skip(skip).limit(limit)
       .then(result => {
         res.status(200).json(result)
       })
@@ -38,6 +37,18 @@ class RestaurantsControllers {
         res.status(404).json({
           msg: 'Restaurant Not Found',
           success: false
+        })
+      })
+  }
+  
+  async getCount (req, res) {
+    Restaurant.find().countDocuments()
+      .then(result => {
+        res.status(200).json(result)
+      })
+      .catch(err => {
+        res.status(500).json({
+          error: err
         })
       })
   }
@@ -173,13 +184,23 @@ class RestaurantsControllers {
   }
 
   async getFood (req, res) {
+    Restaurant.findOne({adminUserName: req.user.username})
+      .then(restaurant => {
+        restaurant.menu.find()
+          .then(result => {
+            res.status(200).json(result)
+          })
+      })
+  }
+
+  async getFoodCount (req, res) {
     const restaurant = await Restaurant.findOne({adminUserName: req.user.username})
 
       if (!restaurant) return res.status(404).json({
         mag: 'this resturant not Found'
       })
 
-      res.status(200).json(restaurant.menu)
+      res.status(200).json(restaurant.menu.length)
   }
 
   async getFoodbyId (req, res) {
