@@ -47,3 +47,6 @@
 {"message":"Route.get() requires a callback function but got a [object Undefined]","level":"error"}
 {"message":"Cannot set headers after they are sent to the client","level":"error"}
 {"message":"undefined is not a function","level":"error"}
+{"message":"undefined is not a function","level":"error"}
+{"message":"undefined is not a function","level":"error"}
+{"message":"Cannot read property 'path' of undefined","level":"error"}

@@ -61,8 +61,11 @@ class RestaurantsControllers {
       if (err) return res.status(500).json({
         error: err
       })
+      console.log(req.file)
 
-      const restaurant = new Restaurant({..._.pick(req.body, ['title', 'description', 'address', 'adminUserName']), adminPassword: hash})
+      const restaurant = new Restaurant({..._.pick(req.body, ['title', 'description', 'address', 'adminUserName']), 
+      adminPassword: hash,
+      })
   
         restaurant.save()
           .then(result => {
@@ -186,10 +189,12 @@ class RestaurantsControllers {
   async getFood (req, res) {
     Restaurant.findOne({adminUserName: req.user.username})
       .then(restaurant => {
-        restaurant.menu.find()
-          .then(result => {
-            res.status(200).json(result)
-          })
+        res.status(200).json(restaurant.menu)
+      })
+      .catch(err => {
+        res.status(500).json({
+          error: err
+        })
       })
   }
 
@@ -216,21 +221,32 @@ class RestaurantsControllers {
 
 
   async updateFood (req, res) {
-    const restaurant = await Restaurant.find({adminUserName: req.user.username})
+    const restaurant = await Restaurant.findOne({adminUserName: req.user.username})
 
       if (!restaurant) return res.status(404).json({
         mag: 'this resturant not Found'
       })
-      const id = req.params.id
 
-      if (!restaurant.menu.id(id)) return res.status(404).json({
+      const id = req.params.id
+      const foundFood = restaurant.menu.id(id)
+
+      if (!foundFood) return res.status(404).json({
         msg: 'this restaurant not found'
       })
 
-      restaurant.menu.id(id).update(_.pick(req.body, ['title', 'description', 'price']))
-      res.status(200).json({
-        success: true
-      })
+      foundFood.title = req.body.title ? req.body.title : null
+      foundFood.description = req.body.description ? req.body.description : null
+      foundFood.price = req.body.price ? req.body.price : null
+
+      restaurant.save()
+        .then(() => {
+          res.status(200).json(true)
+        })
+        .catch(err => {
+          res.status(500).json({
+            error: err
+          })
+        })
   }
 
   async deleteFood (req, res) {
