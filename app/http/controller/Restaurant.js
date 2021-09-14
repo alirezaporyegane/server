@@ -8,7 +8,7 @@ class RestaurantsControllers {
   async getAll (req, res) {
     const limit = req.query.limit ? Number(req.query.limit) : '';
     const skip = req.query.skip ? Number(req.query.skip) : '';
-    Restaurant.find().select('title description score adminUserName image address').skip(skip).limit(limit)
+    Restaurant.find().skip(skip).limit(limit)
       .then(result => {
         res.status(200).json(result)
       })
@@ -63,7 +63,7 @@ class RestaurantsControllers {
       })
       console.log(req.file)
 
-      const restaurant = new Restaurant({..._.pick(req.body, ['title', 'description', 'address', 'adminUserName']), 
+      const restaurant = new Restaurant({..._.pick(req.body, ['title', 'description', 'address', 'adminUserName', 'image']),
       adminPassword: hash,
       })
   
@@ -93,7 +93,7 @@ class RestaurantsControllers {
     if (error) return res.status(400).json(error.message);
 
      Restaurant.findByIdAndUpdate(id, {
-      $set: {..._.pick(req.body, ['title', 'description', 'address', 'adminUserName'])}
+      $set: {..._.pick(req.body, ['title', 'description', 'address', 'adminUserName', 'image'])}
     }, { new: true })
       .then(result => {
         res.status(200).json(_.pick(result, ['title', 'description', 'address', 'adminUserName']))
@@ -170,7 +170,7 @@ class RestaurantsControllers {
     const { error } = FoodValidator(req.body)
     if (error) return res.status(400).json(error.messaage)
 
-    restaurant.menu.push(_.pick(req.body, ['title', 'description', 'price']))
+    restaurant.menu.push(_.pick(req.body, ['title', 'description', 'price', 'image']))
 
     restaurant.save()
       .then(() => {
@@ -237,6 +237,7 @@ class RestaurantsControllers {
       foundFood.title = req.body.title ? req.body.title : null
       foundFood.description = req.body.description ? req.body.description : null
       foundFood.price = req.body.price ? req.body.price : null
+      foundFood.image = req.body.image ? req.body.image : null
 
       restaurant.save()
         .then(() => {
