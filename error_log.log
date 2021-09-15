@@ -56,3 +56,4 @@
 {"message":"res.status(...).json(...).catch is not a function","level":"error"}
 {"message":"res.status(...).json(...).catch is not a function","level":"error"}
 {"message":"Cannot read property 'path' of undefined","level":"error"}
+{"message":"upload.single is not a function","level":"error"}
