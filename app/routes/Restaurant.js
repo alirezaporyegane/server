@@ -3,12 +3,11 @@ router = express.Router(),
 Controller = require('../http/controller/Restaurant')
 const authUser = require('../http/middleware/Auth')
 const authRestaurant = require('../http/middleware/Auth')
-const { upload } = require('../http/middleware/upload')
 
 router.get('/', Controller.getAll)
 router.get('/count', Controller.getCount)
 router.get('/:id', Controller.getById)
-router.post('/', upload.single('image'), Controller.create)
+router.post('/', Controller.create)
 router.put('/:id', Controller.update)
 router.delete('/:id', Controller.delete)
 router.post('/login', Controller.login)

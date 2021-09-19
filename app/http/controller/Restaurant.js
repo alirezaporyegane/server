@@ -61,7 +61,6 @@ class RestaurantsControllers {
       if (err) return res.status(500).json({
         error: err
       })
-      console.log(req.file)
 
       const restaurant = new Restaurant({..._.pick(req.body, ['title', 'description', 'address', 'adminUserName', 'image']),
       adminPassword: hash,

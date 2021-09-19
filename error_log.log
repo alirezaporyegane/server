@@ -61,3 +61,13 @@
 {"message":"upload.single is not a function","level":"error"}
 {"message":"upload.single is not a function","level":"error"}
 {"message":"upload.single is not a function","level":"error"}
+{"message":"upload.single is not a function","level":"error"}
+{"message":"upload.single is not a function","level":"error"}
+{"message":"upload.single is not a function","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Router.use() requires a middleware function but got a Object","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Cannot read property 'single' of undefined","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
