@@ -75,3 +75,5 @@
 {"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
 {"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
 {"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"res.status(...).json(...).catch is not a function","level":"error"}
+{"message":"res.status(...).json(...).catch is not a function","level":"error"}
