@@ -5,6 +5,6 @@ const Restaurant = require('./Restaurant');
 const Shared = require('./Shared');
 
 router.use('/restaurant', Restaurant);
-router.use('/files', Shared);
+router.use('/shared', Shared);
 
 module.exports = router;

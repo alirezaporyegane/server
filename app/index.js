@@ -10,11 +10,11 @@ const app = express();
 
 class Application {
   constructor () {
-    this.setupExpressServer()
     this.setupMiddleware()
     this.setupMongoose()
     this.setupConfigs()
     this.setupRoutes()
+    this.setupExpressServer()
   }
 
   setupRoutes () {
@@ -25,9 +25,9 @@ class Application {
 
   setupMiddleware () {
     const ErrorMiddleware = require('./http/middleware/Error')
+    app.use(express.static('uploads'))
     app.use(express.json())
     app.use(express.urlencoded({ extended: true }))
-    app.use(express.static("public"));
     app.use(cors());
     if(app.get("env") === "development")
     app.use(morgan('tiny'))

@@ -2,8 +2,9 @@ const Shared = require('../../model/Shared');
 
 class shareController {
   async createImage (req, res) {
+    console.log(req.file)
     const share = new Shared({
-      file: req.file.path
+      file: req.file.path.slice(8)
     })
 
     share.save()
