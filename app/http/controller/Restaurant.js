@@ -19,6 +19,20 @@ class RestaurantsControllers {
       })
   }
 
+  async getAllRestaurantForUser (req, res) {
+    const limit = req.query.limit ? Number(req.query.limit) : '';
+    const skip = req.query.skip ? Number(req.query.skip) : '';
+    Restaurant.find().select('title description address image score comments').skip(skip).limit(limit)
+      .then(result => {
+        res.status(200).json(result)
+      })
+      .catch(err => {
+        res.status(500).json({
+          error: err
+        })
+      })
+  }
+
   async getById (req, res) {
     const id = req.params.id
 
@@ -30,6 +44,28 @@ class RestaurantsControllers {
     }
 
     Restaurant.findById(id).select('-adminPassword')
+      .then(result => {
+        res.status(200).json(result)
+      })
+      .catch(err => {
+        res.status(404).json({
+          msg: 'Restaurant Not Found',
+          success: false
+        })
+      })
+  }
+
+  async getByIdForUSer (req, res) {
+    const id = req.params.id
+
+    if (!mongoose.isValidObjectId(id)) {
+      res.status(400).json({
+        msg: 'Id is not valid',
+        success: false
+      })
+    }
+
+    Restaurant.findById(id).select('-adminPassword -adminUserName')
       .then(result => {
         res.status(200).json(result)
       })
@@ -265,6 +301,31 @@ class RestaurantsControllers {
       await restaurant.save()
       res.status(200).json({
         success: true
+      })
+  }
+
+  async createCommnet (req, res) {
+    const id = req.params.id
+    Restaurant.findById(id)
+      .then(data => {
+        if (data) return res.status(400).json({
+          code: 400,
+          msg: 'data not found'
+        })
+
+        restaurant.comments.push(_.pick(req.body, ['user', 'text','score']))
+        restaurant.save()
+          .then(() => {
+            res.status(200).json({
+              success: true
+            })
+          })
+          .catch(err => {
+            console.log(err)
+            res.status(500).json({
+              error: err
+            })
+          })
       })
   }
 };
