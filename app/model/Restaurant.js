@@ -13,7 +13,7 @@ const CommentsSchema = new Schema({
     required: true
   },
   score: Number
-})
+}, { timestamps: true })
 
 const menuSchema = new Schema({
   title: {
@@ -24,9 +24,12 @@ const menuSchema = new Schema({
     type: String,
     required: true
   },
-  price: {
+  pricebeforeDiscount: {
     type: Number,
     required: true
+  },
+  discount: {
+    type: Number
   },
   image: {
     type: String
@@ -37,13 +40,16 @@ const menuSchema = new Schema({
     required: true,
     default: 0
   }
-})
+}, { timestamps: true })
 
 
 const RestaurantSchema = new Schema({
   title: {
     type: String,
     required: true
+  },
+  alttitle: {
+    type: String
   },
   description: {
     type: String,
@@ -55,6 +61,7 @@ const RestaurantSchema = new Schema({
   },
   address: String,
   image: String,
+  header: String,
   comments: [CommentsSchema],
   menu: [menuSchema],
   adminUserName: {
@@ -64,8 +71,41 @@ const RestaurantSchema = new Schema({
   adminPassword: {
     type: String,
     required: true
+  },
+  adminEmail: {
+    type: String,
+  },
+  name: {
+    type: String
+  },
+  familyName: {
+    type: String
+  },
+  phoneNumber: {
+    type: String
+  },
+  telegramField : {
+    type: String
+  },
+  instagramField: {
+    type: String
+  },
+  whatsappField: {
+    type: String
+  },
+  logo: {
+    type: String
+  },
+  slug: {
+    type: String,
+  },
+  metaTitle: {
+    type: String,
+  },
+  metaDescription: {
+    type: String
   }
-})
+},{ timestamps: true })
 
 RestaurantSchema.methods.generateAuthToken = function () {
   const data = {

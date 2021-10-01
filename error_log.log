@@ -83,3 +83,9 @@
 {"message":"Cannot find module './Restaurant'\nRequire stack:\n- C:\\Users\\Alireza\\Desktop\\web\\Backend Panel\\app\\routes\\Api.js\n- C:\\Users\\Alireza\\Desktop\\web\\Backend Panel\\app\\index.js\n- C:\\Users\\Alireza\\Desktop\\web\\Backend Panel\\server.js","level":"error"}
 {"message":"missing ) after argument list","level":"error"}
 {"message":"Route.post() requires a callback function but got a [object Undefined]","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"pricebeforeDiscount is not defined","level":"error"}
+{"message":"pricebeforeDiscount is not defined","level":"error"}
+{"message":"Unexpected token ':'","level":"error"}

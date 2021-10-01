@@ -205,7 +205,7 @@ class RestaurantsControllers {
     const { error } = FoodValidator(req.body)
     if (error) return res.status(400).json(error.messaage)
 
-    restaurant.menu.push(_.pick(req.body, ['title', 'description', 'price', 'image']))
+    restaurant.menu.push(_.pick(req.body, ['title', 'description', 'price', 'image', 'pricebeforeDiscount', 'discount']))
 
     restaurant.save()
       .then(() => {
@@ -224,7 +224,9 @@ class RestaurantsControllers {
   async getFood (req, res) {
     Restaurant.findOne({adminUserName: req.user.username})
       .then(restaurant => {
-        res.status(200).json(restaurant.menu)
+        res.status(200).json({...restaurant.menu, 
+          priceAfterDiscount: pricebeforeDiscount && discount ? pricebeforeDiscount - (pricebeforeDiscount * (discount - 100)) : null
+        })
       })
       .catch(err => {
         res.status(500).json({
@@ -273,6 +275,8 @@ class RestaurantsControllers {
       foundFood.description = req.body.description ? req.body.description : null
       foundFood.price = req.body.price ? req.body.price : null
       foundFood.image = req.body.image ? req.body.image : null
+      foundFood.pricebeforeDiscount = req.body.pricebeforeDiscount ? req.body.pricebeforeDiscount : null
+      foundFood.discount = req.body.discount ? req.body.discount : null
 
       restaurant.save()
         .then(() => {
