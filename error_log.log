@@ -89,3 +89,6 @@
 {"message":"pricebeforeDiscount is not defined","level":"error"}
 {"message":"pricebeforeDiscount is not defined","level":"error"}
 {"message":"Unexpected token ':'","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Unexpected token '}'","level":"error"}

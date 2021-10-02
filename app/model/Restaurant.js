@@ -48,7 +48,7 @@ const RestaurantSchema = new Schema({
     type: String,
     required: true
   },
-  alttitle: {
+  altTitle: {
     type: String
   },
   description: {
