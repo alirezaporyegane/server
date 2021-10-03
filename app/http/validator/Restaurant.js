@@ -35,9 +35,9 @@ const FoodValidator = (data) => {
   const schema = Joi.object({
     title: Joi.string().required(),
     description: Joi.string().required(),
-    pricebeforeDiscount: Joi.number().required(),
+    pricebeforeDiscount: Joi.string().required(),
     image: Joi.any(),
-    discount: Joi.number()
+    discount: Joi.string()
   })
   return schema.validate(data);
 };

@@ -228,7 +228,7 @@ class RestaurantsControllers {
   async getFood (req, res) {
     Restaurant.findOne({adminUserName: req.user.username})
       .then(restaurant => {
-        res.status(200).json({...restaurant.menu})
+        res.status(200).json(restaurant.menu)
       })
       .catch(err => {
         res.status(500).json({
