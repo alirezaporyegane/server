@@ -19,7 +19,7 @@ const brandSchema = new Schema({
     type: String
   },
   tags: [String],
-  otherNAme: [String],
+  otherNames: [String],
   metaTitle: {
     type: String
   },

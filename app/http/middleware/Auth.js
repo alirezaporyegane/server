@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-const authUser = (req, res, next) => {
+const auth = (req, res, next) => {
   const token = req.header('x-auth-token');
   if (!token) return res.status(401).json({
     success: false,
@@ -20,5 +20,20 @@ const authUser = (req, res, next) => {
   }
 }
 
-module.exports = authUser
+const authAdmin = (req, res, next) => {
+  try {
+    if (req.user.role === "Admin") {
+      next()
+    } else
+        return res.status(401).json({ msg: 'you are not admin'})
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+
+module.exports = {
+  auth,
+  authAdmin
+}
 
