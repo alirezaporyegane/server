@@ -7,9 +7,11 @@ class ProductBrand {
     const limit = req.query.limit ? Number(req.query.limit) : '';
     const skip = req.query.skip ? Number(req.query.skip) : '';
     const include = req.query.include ? req.query.include : '';
+    const name = req.query.name ? req.query.name : ''
+    const slug = req.query.slug ? req.query.slug : ''
 
     BrandsModel
-      .find()
+      .find({slug: { $regex: slug }, title: { $regex: name }})
       .skip(skip)
       .limit(limit)
       .select(include)
