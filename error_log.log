@@ -98,3 +98,7 @@
 {"level":"error","message":"Route.post() requires a callback function but got a [object Object]"}
 {"level":"error","message":"Route.post() requires a callback function but got a [object Object]"}
 {"level":"error","message":"Route.post() requires a callback function but got a [object Object]"}
+{"level":"error","message":"require is not a function or its return value is not iterable"}
+{"level":"error","message":"require is not a function or its return value is not iterable"}
+{"level":"error","message":"require is not a function or its return value is not iterable"}
+{"level":"error","message":"require is not a function or its return value is not iterable"}

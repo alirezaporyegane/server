@@ -1,4 +1,5 @@
 const joi = require('joi');
+joi.objectId = require('joi-objectid')(joi);
 
 const BrandValidator = (data) => {
   const Schema = joi.object({
@@ -12,7 +13,7 @@ const BrandValidator = (data) => {
     metaTitle: joi.string().allow(null),
     metaDescription: joi.string().allow(null),
     sortOrder:  joi.number().integer(),
-    productTypeIds: joi.array(joi.string().allow(null)),
+    productTypeIds: joi.objectId().allow(null),
     featured: joi.boolean()
   })
   return Schema.validate(data)

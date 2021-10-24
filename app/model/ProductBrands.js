@@ -29,7 +29,10 @@ const brandSchema = new Schema({
   sortOrder: {
     type: String
   },
-  productTypeIds: [Number],
+  productTypeIds: {
+    type: String,
+    ref: 'ProductType'
+  },
   featured: {
     type: Boolean
   }
